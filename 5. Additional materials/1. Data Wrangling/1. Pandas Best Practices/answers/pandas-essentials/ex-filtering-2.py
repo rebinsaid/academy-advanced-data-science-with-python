@@ -1,0 +1,1 @@
+banking.loc[lambda df: df['surname'].str.startswith('Mill'), 'surname']

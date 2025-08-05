@@ -1,0 +1,6 @@
+id,address,gender,age,height,weight,who,hypertension,heart_disease,ever_married,work_type,residence_type,avg_glucose_level,smoking_status,stroke
+6278,"Molinaview, FL 77972",Male,5.0,0.8,11.26,Child,0,0,0,children,Urban,97.46,Unknown,0
+28150,"North, FL 24888",Female,65.0,1.64,72.35,Woman,1,0,1,Private,Urban,180.76,Unknown,0
+35332,"New, FL 80173",Female,63.0,1.57,70.99,Woman,0,0,1,Private,Rural,93.24,never smoked,0
+31131,"Cookstad, FL 53881",Female,49.0,1.57,55.95,Woman,0,1,1,Private,Rural,76.78,smokes,0
+3553,"Travisshire, NY 05148",Female,43.0,1.61,61.95,Woman,0,0,1,Govt_job,Urban,104.55,smokes,0

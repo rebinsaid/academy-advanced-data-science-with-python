@@ -1,0 +1,47 @@
+5. What are the trade-offs between automated feature engineering (like Featuretools or autoML) vs. manual approaches?
+
+Tools like Featuretools, Auto-sklearn, or H2O AutoML can quickly generate a large number of features from relational or structured data, often uncovering interactions or patterns that may not be obvious.
+
+## Automated feature engineering
+Pros:
+- Speed & scale: Automates repetitive tasks and explores many combinations quickly.
+- Discovery: Can uncover useful relationships or aggregations a human might not think of.
+- Baseline generation: Useful for benchmarking or rapid prototyping.
+
+Cons:
+- Black-box risk: Can produce a large number of features without clear intuition or interpretability.
+- Computational power: Might be too slow and use too much memory for very large datasets
+- Noise & redundancy: May introduce irrelevant or redundant features, increasing risk of overfitting.
+- Domain blindness: Lacks contextual understanding—can't create domain-informed features that often matter most.
+
+## Manual feature engineering
+Pros:
+- Interpretability: Features are easier to explain and justify to stakeholders.
+- Domain value: You can tailor features to real-world logic, business rules, or process knowledge.
+- Control: You choose what to include, reducing risk of overfitting or leakage.
+
+Cons:
+- Time-intensive: Requires more effort, iterations, and back-and-forth with domain experts.
+- Human bias: You might overlook useful patterns or interactions that aren’t obvious.
+
+6. How can you validate whether a new feature is truly valuable to the model?
+
+1. Train two versions of the model
+- One with the new feature.
+- One without it.
+
+And then compare evaluation metrics using cross-validation to make sure the difference isn't due to chance. A small bump in performance might not justify the added complexity. If your model is very big, this may not be feasible to do, in which case it's easier to use the feature importance approach.
+
+2. Use Feature Importance Metrics
+To help reveal whether the model is relying on that feature meaningfully, you could use:
+- Feature importances from tree-based models (e.g., .feature_importances_ in random forests).
+- Permutation importance, which tests how much the model's performance drops when the feature's values are shuffled — this works across model types.
+- Use a simple model to capture the feature importances, and use those results on your more complex model (e.g. with SelectFromModel in scikit-learn)
+
+3. Business or Domain Value
+Even if a feature improves performance, it's important to ask:
+- Is it available at prediction time?
+- Is it interpretable or actionable for stakeholders?
+
+
+
